@@ -49,43 +49,23 @@ export default {
   i18n: {
     locales: [
       {
-        code: 'en',
-        file: 'en-US.js'
+        code: "en",
+        file: "en-US.js"
       },
       {
-        code: 'es',
-        file: 'es-ES.js'
-      },
-      {
-        code: 'fr',
-        file: 'fr-FR.js'
+        code: "fr",
+        file: "fr-FR.js"
       }
     ],
     lazy: true,
-    langDir: 'lang/',
+    langDir: "lang/",
     defaultLocale: "en",
     vueI18n: {
-      fallbackLocale: "en",
+      fallbackLocale: "en"
     }
   },
   /* Auth module options */
   auth: {
-    // strategies: {
-    //   local: {
-    //     endpoints: {
-    //       login: {
-    //         url: "endpoint",
-    //         method: "post",
-    //         propertyName: "token",
-    //       },
-    //       logout: { url: "/api/auth/logout", method: "post" },
-    //       user: { url: "/api/auth/user", method: "get", propertyName: "user" }
-    //     }
-    //   },
-    //   redirect: {
-    //     login: '/auth/sign-in'
-    //   }
-    // }
   },
   /* Router options */
   router: {
