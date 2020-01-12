@@ -2,10 +2,12 @@
   <div class="container">
     <div>
       <logo />
-      <nuxt-link to="/auth/sign-in">Login Page</nuxt-link>
-      <h1 class="title">nuxt_project</h1>
-      <h2 class="subtitle">My dandy Nuxt.js project</h2>
+      <nuxt-link :to="localePath('auth-sign-in')">Login Page</nuxt-link>
+      <h1 class="title">{{ $t('welcome') }}</h1>
+
+     <nuxt-link :to="localePath('card')">to card</nuxt-link>
       <div class="links">
+
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
         <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
@@ -15,10 +17,18 @@
 
 <script>
 import Logo from "~/components/Logo.vue";
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
     Logo
+  },
+  computed: {
+    ...mapGetters(['get_language'])
+  },
+  created() {
+    console.log('asd=',this.$store);
+    
   }
 };
 </script>

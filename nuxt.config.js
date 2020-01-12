@@ -43,8 +43,31 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
+    "nuxt-i18n"
     //"@nuxtjs/auth"
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en-US.js'
+      },
+      {
+        code: 'es',
+        file: 'es-ES.js'
+      },
+      {
+        code: 'fr',
+        file: 'fr-FR.js'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: "en",
+    vueI18n: {
+      fallbackLocale: "en",
+    }
+  },
   /* Auth module options */
   auth: {
     // strategies: {
@@ -66,12 +89,11 @@ export default {
   },
   /* Router options */
   router: {
-    middleware: 'auth'
+    middleware: ["auth", "i18n"]
   },
   /* Axios module configuration */
   axios: {
-    baseURL: "http://localhost:5000",
-    
+    baseURL: "http://localhost:5000"
   },
   /*
    ** Build configuration

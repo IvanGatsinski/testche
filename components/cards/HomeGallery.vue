@@ -8,8 +8,7 @@
         <b-col md="6">
           <b-card-body title="Horizontal Card">
             <b-card-text>
-              This is a wider card with supporting text as a natural lead-in to additional content.
-              This content is a little bit longer.
+              {{ $t('test') }}
             </b-card-text>
           </b-card-body>
         </b-col>

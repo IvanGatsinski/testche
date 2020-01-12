@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link to="/">Home Page</nuxt-link>
+    <nuxt-link :to="localePath('index')">Home Page</nuxt-link>
     <form @submit="onSubmit" novalidate>
       <div class="input-field__container">
         <input type="text" autocomplete="off" v-model="form.name" required id="username" />
@@ -35,7 +35,7 @@
         maxlength_text="Password is too long!"
       />
 
-      <button type="submit">Submit</button>
+      <button type="submit">{{ $t('welcome') }}</button>
     </form>
   </div>
 </template>

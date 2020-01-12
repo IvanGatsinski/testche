@@ -1,19 +1,28 @@
 <template>
   <div>
+    <nuxt-link :to="localePath('index')">Home</nuxt-link>
+    <nuxt-link :to="switchLocalePath('en')">Switch to English</nuxt-link>
+    <br />
+    <nuxt-link :to="switchLocalePath('fr')">Switch to French</nuxt-link>
+    <br />
     <nuxt />
   </div>
 </template>
 
 <script>
 export default {
-  middleware: ['auth']
-}
+  middleware: ["auth"],
+  created() {
+    console.log('router =',this.$router);
+        
+  }
+};
 </script>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
