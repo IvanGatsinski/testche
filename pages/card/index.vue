@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nuxt-link :to="localePath({ name: 'card-id', params: { id: 5 } })">card-5</nuxt-link>
+    <nuxt-link to="/card/5">card-5</nuxt-link>
     <ul>
-      <li>content ={{ content }}</li>
-      <li>header = {{ headers }}</li>
+ 
     </ul>
     <card></card>
+    <h4>Hello!</h4>
   </div>
 </template>
 
@@ -17,13 +17,19 @@ export default {
     Card
   },
   asyncData() {
-    return {
-      content: $t("welcome"),
-      headers: [$t("test")]
-    };
+    // return {
+    //   content: $t("welcome"),
+    //   headers: [$t("test")]
+    // };
   }
 };
 </script>
 
 <style scoped>
+h4.testche:hover {
+  transition: .5s;
+}
+h4::after.testche {
+  color: green;
+}
 </style>

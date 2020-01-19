@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Route id = {{ id }}</h1>
+    <h1>Route id = {{ $route.params.id }}</h1>
     <h2>{{ $t('welcome') }}</h2>
   </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <nuxt-link :to="localePath('auth-sign-in')">Login Page</nuxt-link>
+       <nuxt-link to="/test">to test</nuxt-link>
+      <nuxt-link to='/auth/sign-in'>Login Page</nuxt-link>
       <h1 class="title">{{ $t('welcome') }}</h1>
 
-     <nuxt-link :to="localePath('card')">to card</nuxt-link>
+     <nuxt-link to="/card">to card</nuxt-link>
       <div class="links">
 
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
@@ -27,7 +27,10 @@ export default {
     ...mapGetters(['get_language'])
   },
   created() {
-    console.log('asd=',this.$store);
+    console.log(this.$i18n);
+    
+    console.log(123,this.$i18n.getLocaleCookie());
+    
     
   }
 };

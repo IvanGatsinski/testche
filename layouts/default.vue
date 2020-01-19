@@ -1,9 +1,11 @@
 <template>
   <div>
-    <nuxt-link :to="localePath('index')">Home</nuxt-link>
-    <nuxt-link :to="switchLocalePath('en')">Switch to English</nuxt-link>
+    <nuxt-link to="/">Home</nuxt-link>
+    <button @click="switchLang('en')">english</button>
+    <button @click="switchLang('fr')">french</button>
+    <!-- <nuxt-link :to="switchLocalePath('en')">Switch to English</nuxt-link>
     <br />
-    <nuxt-link :to="switchLocalePath('fr')">Switch to French</nuxt-link>
+    <nuxt-link :to="switchLocalePath('fr')">Switch to French</nuxt-link> -->
     <br />
     <nuxt />
   </div>
@@ -12,8 +14,17 @@
 <script>
 export default {
   middleware: ["auth"],
+  methods: {
+    switchLang(locale) {
+      //this.$i18n.setLocaleCookie(locale)
+      this.$i18n.setLocale(locale)
+
+      console.log(this.$route.path);
+      
+    }
+  },
   created() {
-    console.log('router =',this.$router);
+  
         
   }
 };

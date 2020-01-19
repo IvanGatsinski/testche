@@ -7,6 +7,9 @@ export default {
     port: 5000, // default: 3000
     host: "localhost" // default: localhost
   },
+  serverMiddleware: [
+    '~serverMiddleware/test'
+  ],
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -47,6 +50,7 @@ export default {
     //"@nuxtjs/auth"
   ],
   i18n: {
+    strategy: 'no_prefix',
     locales: [
       {
         code: "en",
@@ -60,9 +64,21 @@ export default {
     lazy: true,
     langDir: "lang/",
     defaultLocale: "en",
-    vueI18n: {
-      fallbackLocale: "en"
-    }
+    detectBrowserLanguage: {
+      // If enabled, a cookie is set once a user has been redirected to his
+      // preferred language to prevent subsequent redirections
+      // Set to false to redirect every time
+      useCookie: true,
+      // Cookie name
+      cookieKey: 'i18n_redirected',
+      // Set to always redirect to value stored in the cookie, not just once
+      //alwaysRedirect: false,
+      // If no locale for the browsers locale is a match, use this one as a fallback
+      //fallbackLocale: null
+    },
+    // vueI18n: {
+    //   fallbackLocale: "en"
+    // }
   },
   /* Auth module options */
   auth: {
