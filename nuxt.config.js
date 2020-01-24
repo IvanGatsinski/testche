@@ -7,9 +7,7 @@ export default {
     port: 5000, // default: 3000
     host: "localhost" // default: localhost
   },
-  serverMiddleware: [
-    '~serverMiddleware/test'
-  ],
+  serverMiddleware: ["~serverMiddleware/test"],
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -21,7 +19,14 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src:
+          "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js",
+        body: true
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -30,7 +35,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~assets/materialize/css/materialize.min.css"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -46,11 +51,25 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
-    "nuxt-i18n"
+    "nuxt-i18n",
+    [
+      'nuxt-fontawesome', {
+        imports: [
+         {
+           set: '@fortawesome/free-solid-svg-icons',
+           icons: ['fas']
+         },
+         {
+           set:'@fortawesome/free-brands-svg-icons',
+           icons: ['fab']
+         }
+       ]
+      }
+]
     //"@nuxtjs/auth"
   ],
   i18n: {
-    strategy: 'no_prefix',
+    strategy: "no_prefix",
     locales: [
       {
         code: "en",
@@ -70,19 +89,18 @@ export default {
       // Set to false to redirect every time
       useCookie: true,
       // Cookie name
-      cookieKey: 'i18n_redirected',
+      cookieKey: "i18n_redirected"
       // Set to always redirect to value stored in the cookie, not just once
       //alwaysRedirect: false,
       // If no locale for the browsers locale is a match, use this one as a fallback
       //fallbackLocale: null
-    },
+    }
     // vueI18n: {
     //   fallbackLocale: "en"
     // }
   },
   /* Auth module options */
-  auth: {
-  },
+  auth: {},
   /* Router options */
   router: {
     middleware: ["auth", "i18n"]

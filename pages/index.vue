@@ -1,37 +1,35 @@
 <template>
   <div class="container">
     <div>
-       <nuxt-link to="/test">to test</nuxt-link>
-      <nuxt-link to='/auth/sign-in'>Login Page</nuxt-link>
+      <nuxt-link to="/test">to test</nuxt-link>
+      <nuxt-link to="/auth/sign-in">Login Page</nuxt-link>
       <h1 class="title">{{ $t('welcome') }}</h1>
 
-     <nuxt-link to="/card">to card</nuxt-link>
-      <div class="links">
+      <nuxt-link to="/card">to card</nuxt-link>
+      <p>Icons</p>
 
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-      </div>
+      <font-awesome-icon :icon="['fab', 'linkedin']" />
+      <font-awesome-icon :icon="['fab', 'github']" />
+      <font-awesome-icon :icon="['fab', 'facebook']" />
+      <font-awesome-icon :icon="['fas', 'coffee']" />
     </div>
+    
   </div>
 </template>
 
 <script>
 import Logo from "~/components/Logo.vue";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     Logo
   },
   computed: {
-    ...mapGetters(['get_language'])
+    ...mapGetters(["get_language"])
   },
   created() {
-    console.log(this.$i18n);
-    
-    console.log(123,this.$i18n.getLocaleCookie());
-    
-    
+    //var elems = document.querySelectorAll('.autocomplete');
   }
 };
 </script>
